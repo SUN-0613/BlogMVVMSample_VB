@@ -97,6 +97,11 @@
     <Import Include="System.Windows.Navigation" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\Model\TextBoxModel.vb" />
+    <Compile Include="Forms\ViewModel\TextBoxViewModel.vb" />
+    <Compile Include="Forms\View\TextBoxView.xaml.vb">
+      <DependentUpon>TextBoxView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MVVM\DelegateCommand.vb" />
     <Compile Include="MVVM\ViewModelBase.vb" />
     <Compile Include="My Project\AssemblyInfo.vb">
@@ -128,6 +133,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Forms\View\TextBoxView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

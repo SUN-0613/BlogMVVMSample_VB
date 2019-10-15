@@ -1,0 +1,34 @@
+﻿<Window x:Class="Forms.View.TextBoxView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:BlogMVVMSample_VB.Forms.ViewModel"
+        mc:Ignorable="d"
+        Title="TextBoxView" Height="250" Width="400">
+    <Window.DataContext>
+        <vm:TextBoxViewModel />
+    </Window.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!-- 値を入力する度にViewModelのプロパティ値を更新する -->
+        <TextBox Grid.Row="0" Text="{Binding Text, UpdateSourceTrigger=PropertyChanged}" />
+
+        <TextBlock Grid.Row="1" Text="{Binding Text}" />
+        <Label Grid.Row="2" Content="{Binding Text}" />
+
+        <!-- ViewModelでクリック処理 -->
+        <Button Grid.Row="3" Content="Input Text">
+            <Button.InputBindings>
+                <MouseBinding Command="{Binding ButtonClickCommand}" MouseAction="LeftClick" />
+            </Button.InputBindings>
+        </Button>
+
+    </Grid>
+</Window>

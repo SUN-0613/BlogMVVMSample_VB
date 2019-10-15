@@ -1,4 +1,4 @@
-﻿Namespace My.MVVM
+﻿Namespace MVVM
 
     ''' <summary>コマンド実装</summary>
     ''' <typeparam name="T">コマンドパラメータの型</typeparam>

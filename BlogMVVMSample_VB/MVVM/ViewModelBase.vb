@@ -1,6 +1,6 @@
 ﻿Imports System.ComponentModel
 
-Namespace My.MVVM
+Namespace MVVM
 
     ''' <summary>ViewModel.ベースクラス</summary>
     Public MustInherit Class ViewModelBase
