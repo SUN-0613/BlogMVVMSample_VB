@@ -97,8 +97,14 @@
     <Import Include="System.Windows.Navigation" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\Student.vb" />
+    <Compile Include="Forms\Model\ComboBoxModel.vb" />
     <Compile Include="Forms\Model\TextBoxModel.vb" />
+    <Compile Include="Forms\ViewModel\ComboBoxViewModel.vb" />
     <Compile Include="Forms\ViewModel\TextBoxViewModel.vb" />
+    <Compile Include="Forms\View\ComboBoxView.xaml.vb">
+      <DependentUpon>ComboBoxView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Forms\View\TextBoxView.xaml.vb">
       <DependentUpon>TextBoxView.xaml</DependentUpon>
     </Compile>
@@ -135,10 +141,15 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Forms\View\ComboBoxView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Forms\View\TextBoxView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

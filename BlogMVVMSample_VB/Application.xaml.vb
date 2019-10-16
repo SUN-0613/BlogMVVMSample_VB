@@ -8,7 +8,7 @@ Class Application
 
         MyBase.OnStartup(e)
 
-        Dim form As TextBoxView = New TextBoxView()
+        Dim form As ComboBoxView = New ComboBoxView()
 
         form.ShowDialog()
 
