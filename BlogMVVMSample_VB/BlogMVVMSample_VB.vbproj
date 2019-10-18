@@ -101,12 +101,17 @@
     <Compile Include="Converter\JobStatusConverter.vb" />
     <Compile Include="Data\JobStatus.vb" />
     <Compile Include="Data\Student.vb" />
+    <Compile Include="Forms\Model\CheckBoxModel.vb" />
     <Compile Include="Forms\Model\ComboBox2Model.vb" />
     <Compile Include="Forms\Model\ComboBoxModel.vb" />
     <Compile Include="Forms\Model\TextBoxModel.vb" />
+    <Compile Include="Forms\ViewModel\CheckBoxViewModel.vb" />
     <Compile Include="Forms\ViewModel\ComboBox2ViewModel.vb" />
     <Compile Include="Forms\ViewModel\ComboBoxViewModel.vb" />
     <Compile Include="Forms\ViewModel\TextBoxViewModel.vb" />
+    <Compile Include="Forms\View\CheckBoxView.xaml.vb">
+      <DependentUpon>CheckBoxView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Forms\View\ComboBox2View.xaml.vb">
       <DependentUpon>ComboBox2View.xaml</DependentUpon>
     </Compile>
@@ -152,6 +157,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Forms\View\CheckBoxView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Forms\View\ComboBox2View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

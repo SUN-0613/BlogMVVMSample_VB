@@ -8,7 +8,7 @@ Class Application
 
         MyBase.OnStartup(e)
 
-        Dim form As RadioButtonView = New RadioButtonView()
+        Dim form As CheckBoxView = New CheckBoxView()
 
         form.ShowDialog()
 
