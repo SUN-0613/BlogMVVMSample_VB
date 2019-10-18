@@ -1,0 +1,43 @@
+﻿<Window x:Class="Forms.View.ComboBox2View"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:data="clr-namespace:BlogMVVMSample_VB.Data"
+        xmlns:vm="clr-namespace:BlogMVVMSample_VB.Forms.ViewModel"
+        mc:Ignorable="d"
+        Title="ComboBox2View" Height="150" Width="300">
+    <Window.DataContext>
+        <vm:ComboBox2ViewModel />
+    </Window.DataContext>
+    <Window.Resources>
+        
+        <!-- Enumの参照設定 -->
+        <ObjectDataProvider x:Key="jobStatus" MethodName="GetValues" ObjectType="{x:Type data:JobStatus}" >
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="data:JobStatus" />
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+        
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <ComboBox Grid.Row="0" VerticalAlignment="Center" ItemsSource="{Binding Source={StaticResource jobStatus}}" SelectedValue="{Binding SelectedStatus}" >
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding }" />
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding Message}" />
+
+    </Grid>
+</Window>
