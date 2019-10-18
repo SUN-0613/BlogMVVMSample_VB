@@ -97,6 +97,7 @@
     <Import Include="System.Windows.Navigation" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Converter\EnumToBoolConverter.vb" />
     <Compile Include="Converter\JobStatusConverter.vb" />
     <Compile Include="Data\JobStatus.vb" />
     <Compile Include="Data\Student.vb" />
@@ -111,6 +112,9 @@
     </Compile>
     <Compile Include="Forms\View\ComboBoxView.xaml.vb">
       <DependentUpon>ComboBoxView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\View\RadioButtonView.xaml.vb">
+      <DependentUpon>RadioButtonView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Forms\View\TextBoxView.xaml.vb">
       <DependentUpon>TextBoxView.xaml</DependentUpon>
@@ -153,6 +157,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Forms\View\ComboBoxView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\View\RadioButtonView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
