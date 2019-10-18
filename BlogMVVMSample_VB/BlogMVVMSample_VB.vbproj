@@ -97,6 +97,7 @@
     <Import Include="System.Windows.Navigation" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Converter\JobStatusConverter.vb" />
     <Compile Include="Data\JobStatus.vb" />
     <Compile Include="Data\Student.vb" />
     <Compile Include="Forms\Model\ComboBox2Model.vb" />
