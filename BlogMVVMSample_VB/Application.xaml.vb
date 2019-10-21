@@ -8,7 +8,7 @@ Class Application
 
         MyBase.OnStartup(e)
 
-        Dim form As CheckBoxView = New CheckBoxView()
+        Dim form As ListView = New ListView()
 
         form.ShowDialog()
 
