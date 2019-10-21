@@ -99,6 +99,7 @@
   <ItemGroup>
     <Compile Include="Converter\EnumToBoolConverter.vb" />
     <Compile Include="Converter\JobStatusConverter.vb" />
+    <Compile Include="Custom\CustomTreeView.vb" />
     <Compile Include="Data\JobStatus.vb" />
     <Compile Include="Data\PathInfo.vb" />
     <Compile Include="Data\Student.vb" />

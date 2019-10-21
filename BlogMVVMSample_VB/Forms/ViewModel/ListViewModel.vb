@@ -17,6 +17,7 @@ Namespace Forms.ViewModel
 
 #Region "Property"
 
+        ''' <summary>パス一覧</summary>
         Public Property Paths As ObservableCollection(Of PathInfo)
             Get
                 Return _Model.Paths
@@ -24,6 +25,25 @@ Namespace Forms.ViewModel
             Set(value As ObservableCollection(Of PathInfo))
                 _Model.Paths = value
             End Set
+        End Property
+
+        ''' <summary>選択パス</summary>
+        Public Property SelectedPath As PathInfo
+            Get
+                Return _Model.SelectedPath
+            End Get
+            Set(value As PathInfo)
+                _Model.SelectedPath = value
+                CallPropertyChanged()
+                CallPropertyChanged(NameOf(FullPath))
+            End Set
+        End Property
+
+        ''' <summary>選択パスのフルパス</summary>
+        Public ReadOnly Property FullPath As String
+            Get
+                Return _Model.SelectedPath.FullPath
+            End Get
         End Property
 
 #End Region

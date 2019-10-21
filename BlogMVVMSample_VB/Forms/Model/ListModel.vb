@@ -13,6 +13,9 @@ Namespace Forms.Model
         ''' <summary>パス一覧</summary>
         Public Paths As ObservableCollection(Of PathInfo)
 
+        ''' <summary>選択したパス</summary>
+        Public SelectedPath As PathInfo
+
 #End Region
 
         ''' <summary>一覧表示Controlsサンプル.Model</summary>
