@@ -36,6 +36,7 @@ Namespace Forms.ViewModel
                 _Model.SelectedPath = value
                 CallPropertyChanged()
                 CallPropertyChanged(NameOf(FullPath))
+                CallPropertyChanged(NameOf(Files))
             End Set
         End Property
 
@@ -44,6 +45,16 @@ Namespace Forms.ViewModel
             Get
                 Return _Model.SelectedPath.FullPath
             End Get
+        End Property
+
+        ''' <summary>選択パス直下のファイル一覧</summary>
+        Public Property Files As ObservableCollection(Of FileInfo)
+            Get
+                Return _Model.Files
+            End Get
+            Set(value As ObservableCollection(Of FileInfo))
+                _Model.Files = value
+            End Set
         End Property
 
 #End Region
