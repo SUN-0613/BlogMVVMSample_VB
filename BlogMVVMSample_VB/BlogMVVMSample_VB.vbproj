@@ -54,6 +54,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System" />
@@ -97,6 +98,7 @@
     <Import Include="System.Windows.Navigation" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Converter\BitmapConverter.vb" />
     <Compile Include="Converter\EnumToBoolConverter.vb" />
     <Compile Include="Converter\JobStatusConverter.vb" />
     <Compile Include="Custom\CustomTreeView.vb" />

@@ -14,7 +14,7 @@ Namespace Forms.Model
         ''' <summary>パス一覧</summary>
         Public Paths As ObservableCollection(Of PathInfo)
 
-        ''' <summary>選択したパス</summary>
+        ''' <summary>パス一覧で選択したパス</summary>
         Public Property SelectedPath As PathInfo
             Get
                 Return _SelectedPath
@@ -27,6 +27,9 @@ Namespace Forms.Model
 
         ''' <summary>選択パス直下のファイル一覧</summary>
         Public Files As ObservableCollection(Of FileInfo)
+
+        ''' <summary>ファイル一覧で選択したファイル</summary>
+        Public SelectedFile As FileInfo
 
 #End Region
 

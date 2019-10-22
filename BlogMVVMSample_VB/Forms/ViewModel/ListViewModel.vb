@@ -57,6 +57,24 @@ Namespace Forms.ViewModel
             End Set
         End Property
 
+        ''' <summary>ファイル一覧で選択したファイル</summary>
+        Public Property SelectedFile As FileInfo
+            Get
+                Return _Model.SelectedFile
+            End Get
+            Set(value As FileInfo)
+
+                _Model.SelectedFile = value
+                CallPropertyChanged()
+                CallPropertyChanged(NameOf(FileInfo.Name))
+                CallPropertyChanged(NameOf(FileInfo.BitmapImage))
+                CallPropertyChanged(NameOf(FileInfo.LastWriteTime))
+                CallPropertyChanged(NameOf(FileInfo.Size))
+                CallPropertyChanged(NameOf(FileInfo.CreationTime))
+
+            End Set
+        End Property
+
 #End Region
 
         ''' <summary>一覧表示Controlsサンプル.ViewModel</summary>

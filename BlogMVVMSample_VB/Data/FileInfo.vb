@@ -1,4 +1,5 @@
 ﻿Imports System
+Imports System.Drawing  ' 参照にSystem.Drawingを追加
 Imports IO = System.IO
 Imports System.Windows
 
@@ -18,6 +19,12 @@ Namespace Data
         ''' <summary>作成日時</summary>
         Public Property CreationTime As DateTime
 
+        ''' <summary>更新日時</summary>
+        Public Property LastWriteTime As DateTime
+
+        ''' <summary>ファイルアイコン画像イメージ</summary>
+        Public Property BitmapImage As Bitmap
+
 #End Region
 
         ''' <summary>フルパス</summary>
@@ -36,6 +43,10 @@ Namespace Data
                 Name = fileInfo.Name
                 Size = fileInfo.Length
                 CreationTime = fileInfo.CreationTime
+                LastWriteTime = fileInfo.LastWriteTime
+
+                Dim icon As Icon = Icon.ExtractAssociatedIcon(fullPath)
+                BitmapImage = icon.ToBitmap()
 
             End If
 
