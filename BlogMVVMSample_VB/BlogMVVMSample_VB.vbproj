@@ -101,6 +101,7 @@
     <Compile Include="Converter\BitmapConverter.vb" />
     <Compile Include="Converter\EnumToBoolConverter.vb" />
     <Compile Include="Converter\JobStatusConverter.vb" />
+    <Compile Include="Custom\CustomListView.vb" />
     <Compile Include="Custom\CustomTreeView.vb" />
     <Compile Include="Data\FileInfo.vb" />
     <Compile Include="Data\JobStatus.vb" />

@@ -1,5 +1,6 @@
 ﻿Imports BlogMVVMSample_VB.Data
 Imports System
+Imports System.Collections
 Imports System.Collections.ObjectModel
 Imports IO = System.IO
 Imports System.Threading.Tasks
@@ -28,8 +29,8 @@ Namespace Forms.Model
         ''' <summary>選択パス直下のファイル一覧</summary>
         Public Files As ObservableCollection(Of FileInfo)
 
-        ''' <summary>ファイル一覧で選択したファイル</summary>
-        Public SelectedFile As FileInfo
+        ''' <summary>ファイル一覧で選択したファイル一覧</summary>
+        Public SelectedFiles As IList
 
 #End Region
 

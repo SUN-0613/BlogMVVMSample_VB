@@ -58,13 +58,13 @@ Namespace Forms.ViewModel
         End Property
 
         ''' <summary>ファイル一覧で選択したファイル</summary>
-        Public Property SelectedFile As FileInfo
+        Public Property SelectedFiles As IList
             Get
-                Return _Model.SelectedFile
+                Return _Model.SelectedFiles
             End Get
-            Set(value As FileInfo)
+            Set(value As IList)
 
-                _Model.SelectedFile = value
+                _Model.SelectedFiles = value
                 CallPropertyChanged()
                 CallPropertyChanged(NameOf(FileInfo.Name))
                 CallPropertyChanged(NameOf(FileInfo.BitmapImage))
