@@ -8,7 +8,7 @@ Class Application
 
         MyBase.OnStartup(e)
 
-        Dim form As ListView = New ListView()
+        Dim form As New MessageBox2View()
 
         form.ShowDialog()
 

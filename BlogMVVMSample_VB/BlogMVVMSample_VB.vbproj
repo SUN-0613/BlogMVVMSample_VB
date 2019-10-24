@@ -53,8 +53,14 @@
     </StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Expression.Interactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\Microsoft.Expression.Interactions.dll</HintPath>
+    </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System" />
@@ -98,6 +104,7 @@
     <Import Include="System.Windows.Navigation" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Behaviors\MessageBoxBehavior.vb" />
     <Compile Include="Converter\BitmapConverter.vb" />
     <Compile Include="Converter\EnumToBoolConverter.vb" />
     <Compile Include="Converter\JobStatusConverter.vb" />
@@ -105,17 +112,20 @@
     <Compile Include="Custom\CustomTreeView.vb" />
     <Compile Include="Data\FileInfo.vb" />
     <Compile Include="Data\JobStatus.vb" />
+    <Compile Include="Data\MessageBoxInfo.vb" />
     <Compile Include="Data\PathInfo.vb" />
     <Compile Include="Data\Student.vb" />
     <Compile Include="Forms\Model\CheckBoxModel.vb" />
     <Compile Include="Forms\Model\ComboBox2Model.vb" />
     <Compile Include="Forms\Model\ComboBoxModel.vb" />
     <Compile Include="Forms\Model\ListModel.vb" />
+    <Compile Include="Forms\Model\MessageBox2Model.vb" />
     <Compile Include="Forms\Model\TextBoxModel.vb" />
     <Compile Include="Forms\ViewModel\CheckBoxViewModel.vb" />
     <Compile Include="Forms\ViewModel\ComboBox2ViewModel.vb" />
     <Compile Include="Forms\ViewModel\ComboBoxViewModel.vb" />
     <Compile Include="Forms\ViewModel\ListViewModel.vb" />
+    <Compile Include="Forms\ViewModel\MessageBox2ViewModel.vb" />
     <Compile Include="Forms\ViewModel\TextBoxViewModel.vb" />
     <Compile Include="Forms\View\CheckBoxView.xaml.vb">
       <DependentUpon>CheckBoxView.xaml</DependentUpon>
@@ -128,6 +138,9 @@
     </Compile>
     <Compile Include="Forms\View\ListView.xaml.vb">
       <DependentUpon>ListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\View\MessageBox2View.xaml.vb">
+      <DependentUpon>MessageBox2View.xaml</DependentUpon>
     </Compile>
     <Compile Include="Forms\View\RadioButtonView.xaml.vb">
       <DependentUpon>RadioButtonView.xaml</DependentUpon>
@@ -163,6 +176,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -181,6 +195,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Forms\View\ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\View\MessageBox2View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
