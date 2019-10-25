@@ -8,7 +8,7 @@ Class Application
 
         MyBase.OnStartup(e)
 
-        Dim form As New MessageBox2View()
+        Dim form As New CalendarView()
 
         form.ShowDialog()
 
