@@ -121,6 +121,7 @@
     <Compile Include="Forms\Model\ComboBoxModel.vb" />
     <Compile Include="Forms\Model\ListModel.vb" />
     <Compile Include="Forms\Model\MessageBox2Model.vb" />
+    <Compile Include="Forms\Model\TextBox3Model.vb" />
     <Compile Include="Forms\Model\TextBoxModel.vb" />
     <Compile Include="Forms\ViewModel\CalendarViewModel.vb" />
     <Compile Include="Forms\ViewModel\CheckBoxViewModel.vb" />
@@ -128,6 +129,7 @@
     <Compile Include="Forms\ViewModel\ComboBoxViewModel.vb" />
     <Compile Include="Forms\ViewModel\ListViewModel.vb" />
     <Compile Include="Forms\ViewModel\MessageBox2ViewModel.vb" />
+    <Compile Include="Forms\ViewModel\TextBox3ViewModel.vb" />
     <Compile Include="Forms\ViewModel\TextBoxViewModel.vb" />
     <Compile Include="Forms\View\CalendarView.xaml.vb">
       <DependentUpon>CalendarView.xaml</DependentUpon>
@@ -149,6 +151,9 @@
     </Compile>
     <Compile Include="Forms\View\RadioButtonView.xaml.vb">
       <DependentUpon>RadioButtonView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\View\TextBox3View.xaml.vb">
+      <DependentUpon>TextBox3View.xaml</DependentUpon>
     </Compile>
     <Compile Include="Forms\View\TextBoxView.xaml.vb">
       <DependentUpon>TextBoxView.xaml</DependentUpon>
@@ -212,6 +217,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Forms\View\RadioButtonView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\View\TextBox3View.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
