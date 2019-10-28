@@ -104,7 +104,9 @@
     <Import Include="System.Windows.Navigation" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Behaviors\BehaviorBase.vb" />
     <Compile Include="Behaviors\MessageBoxBehavior.vb" />
+    <Compile Include="Behaviors\TextBoxMoveFocus.vb" />
     <Compile Include="Converter\BitmapConverter.vb" />
     <Compile Include="Converter\EnumToBoolConverter.vb" />
     <Compile Include="Converter\JobStatusConverter.vb" />
