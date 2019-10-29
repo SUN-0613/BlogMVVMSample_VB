@@ -106,6 +106,7 @@
   <ItemGroup>
     <Compile Include="Behaviors\BehaviorBase.vb" />
     <Compile Include="Behaviors\MessageBoxBehavior.vb" />
+    <Compile Include="Behaviors\TextBoxIntegerOnly.vb" />
     <Compile Include="Behaviors\TextBoxMoveFocus.vb" />
     <Compile Include="Converter\BitmapConverter.vb" />
     <Compile Include="Converter\EnumToBoolConverter.vb" />
