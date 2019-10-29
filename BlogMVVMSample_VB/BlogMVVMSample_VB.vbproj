@@ -114,6 +114,7 @@
     <Compile Include="Custom\CustomListView.vb" />
     <Compile Include="Custom\CustomTreeView.vb" />
     <Compile Include="Data\FileInfo.vb" />
+    <Compile Include="Data\Gender.vb" />
     <Compile Include="Data\JobStatus.vb" />
     <Compile Include="Data\MessageBoxInfo.vb" />
     <Compile Include="Data\PathInfo.vb" />
@@ -122,6 +123,7 @@
     <Compile Include="Forms\Model\CheckBoxModel.vb" />
     <Compile Include="Forms\Model\ComboBox2Model.vb" />
     <Compile Include="Forms\Model\ComboBoxModel.vb" />
+    <Compile Include="Forms\Model\DataGridModel.vb" />
     <Compile Include="Forms\Model\ListModel.vb" />
     <Compile Include="Forms\Model\MessageBox2Model.vb" />
     <Compile Include="Forms\Model\TextBox3Model.vb" />
@@ -130,6 +132,7 @@
     <Compile Include="Forms\ViewModel\CheckBoxViewModel.vb" />
     <Compile Include="Forms\ViewModel\ComboBox2ViewModel.vb" />
     <Compile Include="Forms\ViewModel\ComboBoxViewModel.vb" />
+    <Compile Include="Forms\ViewModel\DataGridViewModel.vb" />
     <Compile Include="Forms\ViewModel\ListViewModel.vb" />
     <Compile Include="Forms\ViewModel\MessageBox2ViewModel.vb" />
     <Compile Include="Forms\ViewModel\TextBox3ViewModel.vb" />
@@ -145,6 +148,9 @@
     </Compile>
     <Compile Include="Forms\View\ComboBoxView.xaml.vb">
       <DependentUpon>ComboBoxView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\View\DataGridView.xaml.vb">
+      <DependentUpon>DataGridView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Forms\View\ListView.xaml.vb">
       <DependentUpon>ListView.xaml</DependentUpon>
@@ -208,6 +214,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Forms\View\ComboBoxView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\View\DataGridView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

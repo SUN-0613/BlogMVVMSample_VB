@@ -8,7 +8,7 @@ Class Application
 
         MyBase.OnStartup(e)
 
-        Dim form As New TextBox3View()
+        Dim form As New DataGridView()
 
         form.ShowDialog()
 
