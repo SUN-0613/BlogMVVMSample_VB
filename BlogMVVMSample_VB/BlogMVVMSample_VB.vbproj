@@ -108,6 +108,7 @@
     <Compile Include="Behaviors\MessageBoxBehavior.vb" />
     <Compile Include="Behaviors\TextBoxIntegerOnly.vb" />
     <Compile Include="Behaviors\TextBoxMoveFocus.vb" />
+    <Compile Include="CustomClass\DisposableList.vb" />
     <Compile Include="Converter\BitmapConverter.vb" />
     <Compile Include="Converter\EnumToBoolConverter.vb" />
     <Compile Include="Converter\JobStatusConverter.vb" />
