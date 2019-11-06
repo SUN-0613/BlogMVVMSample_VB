@@ -1,5 +1,4 @@
 ﻿Imports BlogMVVMSample_VB.Forms.View
-
 Class Application
 
     ''' <summary>プログラム起動</summary>
