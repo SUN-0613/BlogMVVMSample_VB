@@ -7,7 +7,7 @@ Class Application
 
         MyBase.OnStartup(e)
 
-        Dim form As New DragAndDropView()
+        Dim form As New CommonDialogView()
 
         form.ShowDialog()
 

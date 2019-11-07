@@ -56,6 +56,12 @@
     <Reference Include="Microsoft.Expression.Interactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\Microsoft.Expression.Interactions.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsAPICodePack-Core.1.1.1\lib\Microsoft.WindowsAPICodePack.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack.Shell, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsAPICodePack-Shell.1.1.1\lib\Microsoft.WindowsAPICodePack.Shell.dll</HintPath>
+    </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -105,6 +111,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Behaviors\BehaviorBase.vb" />
+    <Compile Include="Behaviors\CommonDialogBehavior.vb" />
     <Compile Include="Behaviors\MessageBoxBehavior.vb" />
     <Compile Include="Behaviors\PathsDragAndDropBehavior.vb" />
     <Compile Include="Behaviors\TextBoxIntegerOnly.vb" />
@@ -126,6 +133,7 @@
     <Compile Include="Forms\Model\CheckBoxModel.vb" />
     <Compile Include="Forms\Model\ComboBox2Model.vb" />
     <Compile Include="Forms\Model\ComboBoxModel.vb" />
+    <Compile Include="Forms\Model\CommonDialogModel.vb" />
     <Compile Include="Forms\Model\DataGridModel.vb" />
     <Compile Include="Forms\Model\DragAndDropModel.vb" />
     <Compile Include="Forms\Model\ListModel.vb" />
@@ -136,6 +144,7 @@
     <Compile Include="Forms\ViewModel\CheckBoxViewModel.vb" />
     <Compile Include="Forms\ViewModel\ComboBox2ViewModel.vb" />
     <Compile Include="Forms\ViewModel\ComboBoxViewModel.vb" />
+    <Compile Include="Forms\ViewModel\CommonDialogViewModel.vb" />
     <Compile Include="Forms\ViewModel\DataGridViewModel.vb" />
     <Compile Include="Forms\ViewModel\DragAndDropViewModel.vb" />
     <Compile Include="Forms\ViewModel\ListViewModel.vb" />
@@ -153,6 +162,9 @@
     </Compile>
     <Compile Include="Forms\View\ComboBoxView.xaml.vb">
       <DependentUpon>ComboBoxView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\View\CommonDialogView.xaml.vb">
+      <DependentUpon>CommonDialogView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Forms\View\DataGridView.xaml.vb">
       <DependentUpon>DataGridView.xaml</DependentUpon>
@@ -222,6 +234,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Forms\View\ComboBoxView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\View\CommonDialogView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
