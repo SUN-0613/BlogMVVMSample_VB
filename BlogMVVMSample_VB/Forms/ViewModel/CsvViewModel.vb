@@ -69,6 +69,19 @@ Namespace Forms.ViewModel
         ''' <summary>住所一覧</summary>
         Public Property Addresses As ObservableCollection(Of Address)
 
+        ''' <summary>ファイルを保存するダイアログ</summary>
+        Public Property SaveDialog As CommonSaveFileDialog
+
+        ''' <summary>保存ダイアログ表示コマンド</summary>
+        Public Property SaveDialogCommand As DelegateCommand
+            Get
+                Return _SaveDialogCommand
+            End Get
+            Private Set(value As DelegateCommand)
+                _SaveDialogCommand = value
+            End Set
+        End Property
+
 #End Region
 
         ''' <summary>ファイルパス</summary>
@@ -79,6 +92,9 @@ Namespace Forms.ViewModel
 
         ''' <summary>ダイアログ表示コマンド</summary>
         Private _DialogCommand As DelegateCommand
+
+        ''' <summary>保存ダイアログ表示コマンド</summary>
+        Private _SaveDialogCommand As DelegateCommand
 
         ''' <summary>CSVを読み込みDataGridに表示.ViewModel</summary>
         Public Sub New()
@@ -103,10 +119,40 @@ Namespace Forms.ViewModel
                         FilePath = OpenDialog.FileName
                     End If
 
+                    OpenDialog.Dispose()
+                    OpenDialog = Nothing
+
                 End Sub,
                 Function()
                     Return True
                 End Function)
+
+            SaveDialogCommand = New DelegateCommand(
+            Sub()
+
+                SaveDialog = New CommonSaveFileDialog With
+                {
+                    .Title = "保存するファイル名を入力してください",    ' タイトル
+                    .DefaultDirectory = Environment.CurrentDirectory,   ' 初期表示フォルダ
+                    .DefaultFileName = "SaveFile.csv"                   ' 初期ファイル名
+                }
+
+                ' 拡張子フィルタ
+                SaveDialog.Filters.Add(New CommonFileDialogFilter("CSVファイル", "*.csv"))
+
+                CallPropertyChanged(NameOf(SaveDialog))
+
+                If DialogResult.Equals(CommonFileDialogResult.Ok) Then
+                    _Model.SaveCsvFile(SaveDialog.FileName, Addresses)
+                End If
+
+                SaveDialog.Dispose()
+                SaveDialog = Nothing
+
+            End Sub,
+            Function()
+                Return True
+            End Function)
 
         End Sub
 

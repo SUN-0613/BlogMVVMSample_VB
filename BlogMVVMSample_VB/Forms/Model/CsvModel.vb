@@ -1,4 +1,5 @@
-﻿Imports BlogMVVMSample_VB.Data
+﻿Imports BlogMVVMSample_VB.CustomClass
+Imports BlogMVVMSample_VB.Data
 Imports Microsoft.VisualBasic.FileIO
 Imports System
 Imports System.Collections
@@ -82,6 +83,48 @@ Namespace Forms.Model
 
             Return collection
 
+        End Function
+
+        ''' <summary>住所一覧をCSVファイルに保存</summary>
+        ''' <param name="fullPath">保存するCSVファイルパス</param>
+        ''' <param name="addresses">住所一覧</param>
+        Public Sub SaveCsvFile(fullPath As String, addresses As ObservableCollection(Of Address))
+
+            ' 指定パスのファイルを上書保存
+            Using writer As New StreamWriter(fullPath, False, Encoding.Default)
+
+                ' 作成したDispose()を実装したStringBuilderを使用
+                Using row As New DisposableStringBuilder(128)
+
+                    For Each address In addresses
+
+                        With address
+
+                            ' 出力する行データの作成
+                            row.Clear() _
+                            .Append(AddDoubleQuotation(.PostalCode)).Append(",") _
+                            .Append(AddDoubleQuotation(.Prefectures)).Append(",") _
+                            .Append(AddDoubleQuotation(.City)).Append(",") _
+                            .Append(AddDoubleQuotation(.Place))
+
+                            ' 行データをCSVファイルに出力
+                            writer.WriteLine(row.ToString())
+
+                        End With
+
+                    Next
+
+                End Using
+
+            End Using
+
+        End Sub
+
+        ''' <summary>文字列をダブルクオーテーションで囲む</summary>
+        ''' <param name="value">文字列</param>
+        ''' <returns>ダブルクオーテーションで囲んだ文字列</returns>
+        Private Function AddDoubleQuotation(value As String) As String
+            Return """" & value & """"
         End Function
 
     End Class

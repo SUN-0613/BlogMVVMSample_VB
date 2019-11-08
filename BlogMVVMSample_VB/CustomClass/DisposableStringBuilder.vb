@@ -29,6 +29,11 @@ Namespace CustomClass
 
         End Sub
 
+        ''' <summary>初期化</summary>
+        Public Function Clear() As StringBuilder
+            Return _StringBuilder.Clear()
+        End Function
+
         ''' <summary>文字列の長さを取得、設定</summary>
         Public Property Length As Integer
             Get
