@@ -7,7 +7,7 @@ Class Application
 
         MyBase.OnStartup(e)
 
-        Dim form As New CsvView()
+        Dim form As New ExcelView()
 
         form.ShowDialog()
 
