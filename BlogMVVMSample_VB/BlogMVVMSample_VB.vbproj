@@ -123,6 +123,7 @@
     <Compile Include="CustomClass\DisposableStringBuilder.vb" />
     <Compile Include="Custom\CustomListView.vb" />
     <Compile Include="Custom\CustomTreeView.vb" />
+    <Compile Include="Data\Address.vb" />
     <Compile Include="Data\FileInfo.vb" />
     <Compile Include="Data\Gender.vb" />
     <Compile Include="Data\JobStatus.vb" />
@@ -134,6 +135,7 @@
     <Compile Include="Forms\Model\ComboBox2Model.vb" />
     <Compile Include="Forms\Model\ComboBoxModel.vb" />
     <Compile Include="Forms\Model\CommonDialogModel.vb" />
+    <Compile Include="Forms\Model\CsvModel.vb" />
     <Compile Include="Forms\Model\DataGridModel.vb" />
     <Compile Include="Forms\Model\DragAndDropModel.vb" />
     <Compile Include="Forms\Model\ListModel.vb" />
@@ -145,6 +147,7 @@
     <Compile Include="Forms\ViewModel\ComboBox2ViewModel.vb" />
     <Compile Include="Forms\ViewModel\ComboBoxViewModel.vb" />
     <Compile Include="Forms\ViewModel\CommonDialogViewModel.vb" />
+    <Compile Include="Forms\ViewModel\CsvViewModel.vb" />
     <Compile Include="Forms\ViewModel\DataGridViewModel.vb" />
     <Compile Include="Forms\ViewModel\DragAndDropViewModel.vb" />
     <Compile Include="Forms\ViewModel\ListViewModel.vb" />
@@ -165,6 +168,9 @@
     </Compile>
     <Compile Include="Forms\View\CommonDialogView.xaml.vb">
       <DependentUpon>CommonDialogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\View\CsvView.xaml.vb">
+      <DependentUpon>CsvView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Forms\View\DataGridView.xaml.vb">
       <DependentUpon>DataGridView.xaml</DependentUpon>
@@ -238,6 +244,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Forms\View\CommonDialogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\View\CsvView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
