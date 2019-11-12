@@ -7,7 +7,7 @@ Class Application
 
         MyBase.OnStartup(e)
 
-        Dim form As New ExcelView()
+        Dim form As New ProgressBarView()
 
         form.ShowDialog()
 

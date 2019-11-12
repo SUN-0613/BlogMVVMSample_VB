@@ -162,6 +162,7 @@
     <Compile Include="Forms\Model\ExcelModel.vb" />
     <Compile Include="Forms\Model\ListModel.vb" />
     <Compile Include="Forms\Model\MessageBox2Model.vb" />
+    <Compile Include="Forms\Model\ProgressBarModel.vb" />
     <Compile Include="Forms\Model\TextBox3Model.vb" />
     <Compile Include="Forms\Model\TextBoxModel.vb" />
     <Compile Include="Forms\ViewModel\CalendarViewModel.vb" />
@@ -175,6 +176,7 @@
     <Compile Include="Forms\ViewModel\ExcelViewModel.vb" />
     <Compile Include="Forms\ViewModel\ListViewModel.vb" />
     <Compile Include="Forms\ViewModel\MessageBox2ViewModel.vb" />
+    <Compile Include="Forms\ViewModel\ProgressBarViewModel.vb" />
     <Compile Include="Forms\ViewModel\TextBox3ViewModel.vb" />
     <Compile Include="Forms\ViewModel\TextBoxViewModel.vb" />
     <Compile Include="Forms\View\CalendarView.xaml.vb">
@@ -209,6 +211,9 @@
     </Compile>
     <Compile Include="Forms\View\MessageBox2View.xaml.vb">
       <DependentUpon>MessageBox2View.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\View\ProgressBarView.xaml.vb">
+      <DependentUpon>ProgressBarView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Forms\View\RadioButtonView.xaml.vb">
       <DependentUpon>RadioButtonView.xaml</DependentUpon>
@@ -294,6 +299,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Forms\View\MessageBox2View.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\View\ProgressBarView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
