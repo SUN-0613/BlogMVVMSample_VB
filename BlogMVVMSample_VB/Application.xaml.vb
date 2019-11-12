@@ -7,7 +7,7 @@ Class Application
 
         MyBase.OnStartup(e)
 
-        Dim form As New ProgressBarView()
+        Dim form As New DisposeView()
 
         form.ShowDialog()
 

@@ -137,6 +137,7 @@
     <Compile Include="Behaviors\PathsDragAndDropBehavior.vb" />
     <Compile Include="Behaviors\TextBoxIntegerOnly.vb" />
     <Compile Include="Behaviors\TextBoxMoveFocus.vb" />
+    <Compile Include="Behaviors\WindowClosedBehavior.vb" />
     <Compile Include="CustomClass\DisposableList.vb" />
     <Compile Include="Converter\BitmapConverter.vb" />
     <Compile Include="Converter\EnumToBoolConverter.vb" />
@@ -158,6 +159,7 @@
     <Compile Include="Forms\Model\CommonDialogModel.vb" />
     <Compile Include="Forms\Model\CsvModel.vb" />
     <Compile Include="Forms\Model\DataGridModel.vb" />
+    <Compile Include="Forms\Model\DisposeModel.vb" />
     <Compile Include="Forms\Model\DragAndDropModel.vb" />
     <Compile Include="Forms\Model\ExcelModel.vb" />
     <Compile Include="Forms\Model\ListModel.vb" />
@@ -172,6 +174,7 @@
     <Compile Include="Forms\ViewModel\CommonDialogViewModel.vb" />
     <Compile Include="Forms\ViewModel\CsvViewModel.vb" />
     <Compile Include="Forms\ViewModel\DataGridViewModel.vb" />
+    <Compile Include="Forms\ViewModel\DisposeViewModel.vb" />
     <Compile Include="Forms\ViewModel\DragAndDropViewModel.vb" />
     <Compile Include="Forms\ViewModel\ExcelViewModel.vb" />
     <Compile Include="Forms\ViewModel\ListViewModel.vb" />
@@ -199,6 +202,9 @@
     </Compile>
     <Compile Include="Forms\View\DataGridView.xaml.vb">
       <DependentUpon>DataGridView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\View\DisposeView.xaml.vb">
+      <DependentUpon>DisposeView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Forms\View\DragAndDropView.xaml.vb">
       <DependentUpon>DragAndDropView.xaml</DependentUpon>
@@ -283,6 +289,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Forms\View\DataGridView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\View\DisposeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
