@@ -7,7 +7,7 @@ Class Application
 
         MyBase.OnStartup(e)
 
-        Dim form As New DisposeView()
+        Dim form As New CallbackView()
 
         form.ShowDialog()
 

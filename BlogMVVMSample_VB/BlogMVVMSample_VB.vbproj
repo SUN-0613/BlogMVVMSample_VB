@@ -153,6 +153,7 @@
     <Compile Include="Data\PathInfo.vb" />
     <Compile Include="Data\Student.vb" />
     <Compile Include="Forms\Model\CalendarModel.vb" />
+    <Compile Include="Forms\Model\CallbackModel.vb" />
     <Compile Include="Forms\Model\CheckBoxModel.vb" />
     <Compile Include="Forms\Model\ComboBox2Model.vb" />
     <Compile Include="Forms\Model\ComboBoxModel.vb" />
@@ -168,6 +169,7 @@
     <Compile Include="Forms\Model\TextBox3Model.vb" />
     <Compile Include="Forms\Model\TextBoxModel.vb" />
     <Compile Include="Forms\ViewModel\CalendarViewModel.vb" />
+    <Compile Include="Forms\ViewModel\CallbackViewModel.vb" />
     <Compile Include="Forms\ViewModel\CheckBoxViewModel.vb" />
     <Compile Include="Forms\ViewModel\ComboBox2ViewModel.vb" />
     <Compile Include="Forms\ViewModel\ComboBoxViewModel.vb" />
@@ -184,6 +186,9 @@
     <Compile Include="Forms\ViewModel\TextBoxViewModel.vb" />
     <Compile Include="Forms\View\CalendarView.xaml.vb">
       <DependentUpon>CalendarView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\View\CallbackView.xaml.vb">
+      <DependentUpon>CallbackView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Forms\View\CheckBoxView.xaml.vb">
       <DependentUpon>CheckBoxView.xaml</DependentUpon>
@@ -265,6 +270,10 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="Forms\View\CalendarView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\View\CallbackView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
