@@ -5,6 +5,7 @@ Namespace CustomClass
 
     ''' <summary>SQL Server 接続管理</summary>
     Public Class SqlServer
+        Implements IDisposable
 
 #Region "ErrorProperty"
 
@@ -37,6 +38,9 @@ Namespace CustomClass
 
         ''' <summary>接続FLG</summary>
         Private _IsConnect As Boolean = False
+
+        ''' <summary>トランザクション</summary>
+        Private _SqlTransaction As SqlTransaction
 
 #End Region
 
@@ -95,11 +99,36 @@ Namespace CustomClass
 
         End Sub
 
+        ''' <summary>解放処理</summary>
+        Public Sub Dispose() Implements IDisposable.Dispose
+
+            ' トランザクションの途中ならロールバック
+            Rollback()
+
+            ' 切断
+            Close()
+
+        End Sub
+
         ''' <summary>エラー情報の初期化</summary>
-        Private Sub InitializeException()
+        ''' <param name="isCheckConnect">SQL Serverに接続済みかチェックする</param>
+        Private Sub InitializeException(Optional isCheckConnect As Boolean = True)
 
             If Not String.IsNullOrEmpty(ExceptionMessage) Then
                 ExceptionMessage = String.Empty
+            End If
+
+            If isCheckConnect Then
+                CheckConnect()
+            End If
+
+        End Sub
+
+        ''' <summary>SQL Serverに接続済かチェック</summary>
+        Private Sub CheckConnect()
+
+            If Not _IsConnect Then
+                Throw New Exception("Can not connect to SQL Server")
             End If
 
         End Sub
@@ -149,6 +178,77 @@ Namespace CustomClass
 
                     _SqlConnection.Dispose()
                     _SqlConnection = Nothing
+
+                End If
+
+                ' トランザクション初期化
+                If Not IsNothing(_SqlTransaction) Then
+                    _SqlTransaction.Dispose()
+                    _SqlTransaction = Nothing
+                End If
+
+            Catch ex As Exception
+
+                ExceptionMessage = ex.Message
+
+            End Try
+
+        End Sub
+
+#End Region
+
+#Region "トランザクション"
+
+        ''' <summary>トランザクション開始</summary>
+        Public Sub BeginTransaction()
+
+            Try
+
+                InitializeException()
+
+                _SqlTransaction = _SqlConnection.BeginTransaction()
+
+            Catch ex As Exception
+
+                ExceptionMessage = ex.Message
+
+            End Try
+
+        End Sub
+
+        ''' <summary>コミット</summary>
+        Public Sub Commit()
+
+            Try
+
+                InitializeException()
+
+                If Not IsNothing(_SqlTransaction.Connection) Then
+
+                    _SqlTransaction.Commit()
+                    _SqlTransaction.Dispose()
+
+                End If
+
+            Catch ex As Exception
+
+                ExceptionMessage = ex.Message
+
+            End Try
+
+        End Sub
+
+        ''' <summary>ロールバック</summary>
+        Public Sub Rollback()
+
+            Try
+
+                InitializeException()
+
+                If Not IsNothing(_SqlTransaction.Connection) Then
+
+                    _SqlTransaction.Rollback()
+                    _SqlTransaction.Dispose()
 
                 End If
 
