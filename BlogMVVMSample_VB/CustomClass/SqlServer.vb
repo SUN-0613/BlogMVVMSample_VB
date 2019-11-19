@@ -1,4 +1,5 @@
 ﻿Imports System
+Imports System.Data
 Imports System.Data.SqlClient
 
 Namespace CustomClass
@@ -259,6 +260,142 @@ Namespace CustomClass
             End Try
 
         End Sub
+
+#End Region
+
+#Region "クエリ実行"
+
+        ''' <summary>クエリ実行</summary>
+        ''' <param name="query">SQL文</param>
+        ''' <param name="parameters">SQLパラメータ</param>
+        ''' <param name="queryTimeout">クエリ実行時間(秒)</param>
+        ''' <returns>クエリ実行結果</returns>
+        Public Function ExecuteQuery(query As String, parameters As Dictionary(Of String, Object), Optional queryTimeout As Integer = 30) As SqlDataReader
+
+            Try
+
+                InitializeException()
+
+                Using sqlCommand = New SqlCommand(query, _SqlConnection, _SqlTransaction)
+
+                    ' タイムアウトの設定
+                    sqlCommand.CommandTimeout = queryTimeout
+
+                    ' パラメータの設定
+                    For Each parameter In parameters
+                        sqlCommand.Parameters.Add(New SqlParameter(parameter.Key, parameter.Value))
+                    Next
+
+                    ' 実行
+                    Return sqlCommand.ExecuteReader()
+
+                End Using
+
+            Catch ex As Exception
+
+                ExceptionMessage = ex.Message
+                Return Nothing
+
+            End Try
+
+        End Function
+
+        ''' <summary>クエリ実行</summary>
+        ''' <param name="query">SQL文</param>
+        ''' <param name="queryTimeout">クエリ実行時間(秒)</param>
+        ''' <returns>クエリ実行結果</returns>
+        Public Function ExecuteQuery(query As String, Optional queryTimeout As Integer = 30) As SqlDataReader
+            Return ExecuteQuery(query, New Dictionary(Of String, Object), queryTimeout)
+        End Function
+
+        ''' <summary>クエリ実行</summary>
+        ''' <param name="query">SQL文</param>
+        ''' <param name="parameters">SQLパラメータ</param>
+        ''' <param name="queryTimeout">クエリ実行時間(秒)</param>
+        ''' <returns>更新された行数</returns>
+        Public Function ExecuteNonQuery(query As String, parameters As Dictionary(Of String, Object), Optional queryTimeout As Integer = 30) As Integer
+
+            Try
+
+                InitializeException()
+
+                Using sqlCommand = New SqlCommand(query, _SqlConnection, _SqlTransaction)
+
+                    ' タイムアウトの設定
+                    sqlCommand.CommandTimeout = queryTimeout
+
+                    ' パラメータの設定
+                    For Each parameter In parameters
+                        sqlCommand.Parameters.Add(New SqlParameter(parameter.Key, parameter.Value))
+                    Next
+
+                    ' 実行
+                    Return sqlCommand.ExecuteNonQuery()
+
+                End Using
+
+            Catch ex As Exception
+
+                ExceptionMessage = ex.Message
+                Return -1
+
+            End Try
+
+        End Function
+
+        ''' <summary>クエリ実行後、DataTableにて返す</summary>
+        ''' <param name="query">SQL文</param>
+        ''' <param name="parameters">SQLパラメータ</param>
+        ''' <param name="queryTimeout">クエリ実行時間(秒)</param>
+        ''' <returns>クエリ実行結果</returns>
+        Public Function ExecuteQueryToDataTable(query As String, parameters As Dictionary(Of String, Object), Optional queryTimeout As Integer = 30) As DataTable
+
+            Try
+
+                InitializeException()
+
+                Using sqlCommand = New SqlCommand(query, _SqlConnection, _SqlTransaction)
+
+                    ' タイムアウトの設定
+                    sqlCommand.CommandTimeout = queryTimeout
+
+                    ' パラメータの設定
+                    For Each parameter In parameters
+                        sqlCommand.Parameters.Add(New SqlParameter(parameter.Key, parameter.Value))
+                    Next
+
+                    ' 実行
+                    sqlCommand.ExecuteNonQuery()
+
+                    ' 戻り値作成
+                    Dim readData As New DataTable()
+
+                    Using dataAdapter = New SqlDataAdapter(sqlCommand)
+
+                        dataAdapter.Fill(readData)
+
+                    End Using
+
+                    Return readData
+
+                End Using
+
+            Catch ex As Exception
+
+                ExceptionMessage = ex.Message
+                Return Nothing
+
+            End Try
+
+        End Function
+
+        ''' <summary>クエリ実行後、DataTableにて返す</summary>
+        ''' <param name="query">SQL文</param>
+        ''' <param name="queryTimeout">クエリ実行時間(秒)</param>
+        ''' <returns>クエリ実行結果</returns>
+        Public Function ExecuteQueryToDataTable(query As String, Optional queryTimeout As Integer = 30) As DataTable
+            Return ExecuteQueryToDataTable(query, New Dictionary(Of String, Object), queryTimeout)
+        End Function
 
 #End Region
 
