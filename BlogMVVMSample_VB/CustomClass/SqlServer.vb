@@ -40,7 +40,7 @@ Namespace CustomClass
 
 #End Region
 
-#Region "新規作成"
+#Region "新規作成、解放処理"
 
         ''' <summary>
         ''' SQL Server 操作管理
@@ -95,9 +95,18 @@ Namespace CustomClass
 
         End Sub
 
+        ''' <summary>エラー情報の初期化</summary>
+        Private Sub InitializeException()
+
+            If Not String.IsNullOrEmpty(ExceptionMessage) Then
+                ExceptionMessage = String.Empty
+            End If
+
+        End Sub
+
 #End Region
 
-#Region "接続"
+#Region "接続、切断"
 
         ''' <summary>SQL Server接続</summary>
         ''' <param name="connectionString">接続するためのパラメータ</param>
@@ -111,6 +120,37 @@ Namespace CustomClass
                 ' SQL Server 接続
                 _SqlConnection.Open()
                 _IsConnect = True
+
+            Catch ex As Exception
+
+                ExceptionMessage = ex.Message
+
+            End Try
+
+        End Sub
+
+        ''' <summary>切断</summary>
+        Private Sub Close()
+
+            Try
+
+                InitializeException()
+
+                ' 切断
+                If _IsConnect Then
+
+                    _SqlConnection.Close()
+                    _IsConnect = False
+
+                End If
+
+                ' メモリ解放
+                If Not IsNothing(_SqlConnection) Then
+
+                    _SqlConnection.Dispose()
+                    _SqlConnection = Nothing
+
+                End If
 
             Catch ex As Exception
 
