@@ -76,6 +76,30 @@ Partial Friend NotInheritable Class MySettings
             Me("DbName") = value
         End Set
     End Property
+    
+    <Global.System.Configuration.UserScopedSettingAttribute(),  _
+     Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.Configuration.DefaultSettingValueAttribute("wpf")>  _
+    Public Property UserName() As String
+        Get
+            Return CType(Me("UserName"),String)
+        End Get
+        Set
+            Me("UserName") = value
+        End Set
+    End Property
+    
+    <Global.System.Configuration.UserScopedSettingAttribute(),  _
+     Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.Configuration.DefaultSettingValueAttribute("wpf")>  _
+    Public Property Password() As String
+        Get
+            Return CType(Me("Password"),String)
+        End Get
+        Set
+            Me("Password") = value
+        End Set
+    End Property
 End Class
 
 Namespace My

@@ -3,6 +3,7 @@ Imports BlogMVVMSample_VB.Data
 Imports System
 Imports System.Collections.Generic
 Imports System.Collections.ObjectModel
+Imports System.Data
 Imports System.Diagnostics
 
 Namespace Forms.Model
@@ -87,6 +88,51 @@ Namespace Forms.Model
                         Next
 
                         Return values
+
+                    End Using
+
+                End Using
+
+            Catch ex As Exception
+                Debug.WriteLine(ex.Message)
+            End Try
+
+            Return Nothing
+
+        End Function
+
+        ''' <summary>指定テーブルのレコードを取得</summary>
+        ''' <param name="tableInfo">テーブル情報</param>
+        ''' <returns>テーブルレコード</returns>
+        Public Function GetTableRecord(tableInfo As DataBaseInfo) As DataTable
+
+            ' データベース選択時はNothingを戻す
+            If String.IsNullOrEmpty(tableInfo.ParentName) Then
+                Return Nothing
+            End If
+
+            Try
+
+                ' SQL Server認証でDB接続
+                Using sqlServer = New SqlServer(MySettings.Default.ServerName, MySettings.Default.DbName,
+                                                MySettings.Default.UserName, MySettings.Default.Password)
+
+                    ' 接続エラー確認
+                    If sqlServer.IsError Then
+                        Throw New Exception(sqlServer.ExceptionMessage)
+                    End If
+
+                    ' クエリを保存するStringBuilderの宣言
+                    Using query = New DisposableStringBuilder()
+
+                        ' データベース名＋テーブル名の取得
+                        Dim tableName = tableInfo.ParentName & ".dbo." & tableInfo.Name
+
+                        ' レコード取得クエリ作成
+                        query.Append("SELECT * FROM ").Append(tableName)
+
+                        ' クエリを実行してDataTableを取得
+                        Return sqlServer.ExecuteQueryToDataTable(query.ToString())
 
                     End Using
 
