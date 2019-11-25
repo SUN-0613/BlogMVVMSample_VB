@@ -41,7 +41,7 @@ Namespace Behaviors
             AssociatedObject.AllowDrop = True
 
             ' ドラッグ＆ドロップイベントにメソッド処理を追加
-            AddHandler AssociatedObject.PreviewDragOver, AddressOf OnPreviewDragOver
+            AddHandler AssociatedObject.PreViewDragOver, AddressOf OnPreViewDragOver
             AddHandler AssociatedObject.Drop, AddressOf OnDrop
 
         End Sub
@@ -52,7 +52,7 @@ Namespace Behaviors
             MyBase.OnDetaching()
 
             ' ドラッグ＆ドロップイベントからメソッド処理を解除
-            RemoveHandler AssociatedObject.PreviewDragOver, AddressOf OnPreviewDragOver
+            RemoveHandler AssociatedObject.PreViewDragOver, AddressOf OnPreViewDragOver
             RemoveHandler AssociatedObject.Drop, AddressOf OnDrop
 
         End Sub
@@ -60,7 +60,7 @@ Namespace Behaviors
         ''' <summary>パスドラッグイベント</summary>
         ''' <param name="sender">FrameworkElement</param>
         ''' <param name="e">ドラッグ内容データ</param>
-        Private Sub OnPreviewDragOver(sender As Object, e As DragEventArgs)
+        Private Sub OnPreViewDragOver(sender As Object, e As DragEventArgs)
 
             ' ドラッグデータがファイルフォーマットかチェック
             If e.Data.GetDataPresent(DataFormats.FileDrop, True) Then

@@ -12,8 +12,8 @@ Namespace Behaviors
 
             MyBase.OnAttached()
 
-            ' TextBoxのキーダウンイベントにOnPreviewKeyDownを登録
-            AddHandler AssociatedObject.PreviewKeyDown, AddressOf OnPreviewKeyDown
+            ' TextBoxのキーダウンイベントにOnPreViewKeyDownを登録
+            AddHandler AssociatedObject.PreViewKeyDown, AddressOf OnPreViewKeyDown
 
         End Sub
 
@@ -22,15 +22,15 @@ Namespace Behaviors
 
             MyBase.OnDetaching()
 
-            ' TextBoxのキーダウンイベントからOnPreviewKeyDownを解除
-            RemoveHandler AssociatedObject.PreviewKeyDown, AddressOf OnPreviewKeyDown
+            ' TextBoxのキーダウンイベントからOnPreViewKeyDownを解除
+            RemoveHandler AssociatedObject.PreViewKeyDown, AddressOf OnPreViewKeyDown
 
         End Sub
 
         ''' <summary>キー押下イベント</summary>
         ''' <param name="sender">TextBox</param>
         ''' <param name="e">キーイベントデータ</param>
-        Private Sub OnPreviewKeyDown(sender As Object, e As KeyEventArgs)
+        Private Sub OnPreViewKeyDown(sender As Object, e As KeyEventArgs)
 
             Dim textBox As TextBox = TryCast(sender, TextBox)
 

@@ -13,9 +13,9 @@ Namespace Behaviors
             MyBase.OnAttached()
 
             ' テキスト取得時の処理イベントの追加
-            AddHandler AssociatedObject.PreviewTextInput, AddressOf OnPreviewTextInput
+            AddHandler AssociatedObject.PreViewTextInput, AddressOf OnPreViewTextInput
 
-            ' PreviewTextInputにスペースをスルーしないようにする
+            ' PreViewTextInputにスペースをスルーしないようにする
             AssociatedObject.InputBindings.Add(New KeyBinding(ApplicationCommands.NotACommand, Key.Space, ModifierKeys.None))
             AssociatedObject.InputBindings.Add(New KeyBinding(ApplicationCommands.NotACommand, Key.Space, ModifierKeys.Shift))
 
@@ -36,7 +36,7 @@ Namespace Behaviors
             MyBase.OnDetaching()
 
             ' テキスト取得時の処理イベントの解除
-            RemoveHandler AssociatedObject.PreviewTextInput, AddressOf OnPreviewTextInput
+            RemoveHandler AssociatedObject.PreViewTextInput, AddressOf OnPreViewTextInput
 
             ' 入力Bindingの初期化
             AssociatedObject.InputBindings.Clear()
@@ -49,7 +49,7 @@ Namespace Behaviors
         ''' <summary>テキスト取得時の処理イベント</summary>
         ''' <param name="sender">TextBox</param>
         ''' <param name="e">入力内容データ</param>
-        Private Sub OnPreviewTextInput(sender As Object, e As TextCompositionEventArgs)
+        Private Sub OnPreViewTextInput(sender As Object, e As TextCompositionEventArgs)
 
             ' 整数値に変換できない場合は処理をキャンセル
             e.Handled = Not CheckTextInput(sender, e.Text)

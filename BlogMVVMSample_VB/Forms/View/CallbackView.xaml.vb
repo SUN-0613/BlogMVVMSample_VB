@@ -1,4 +1,4 @@
-﻿Namespace Forms.VIew
+﻿Namespace Forms.View
 
     ''' <summary>Callbackサンプル.View</summary>
     Public Class CallbackView

@@ -7,7 +7,7 @@ Class Application
 
         MyBase.OnStartup(e)
 
-        Dim form As New CallbackView()
+        Dim form As New SqlServerView()
 
         form.ShowDialog()
 
