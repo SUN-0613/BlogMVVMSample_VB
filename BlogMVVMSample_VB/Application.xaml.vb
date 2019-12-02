@@ -1,4 +1,5 @@
 ﻿Imports BlogMVVMSample_VB.Forms.View
+
 Class Application
 
     ''' <summary>プログラム起動</summary>
@@ -7,7 +8,7 @@ Class Application
 
         MyBase.OnStartup(e)
 
-        Dim form As New SqlServerView()
+        Dim form As New LikeOperatorView()
 
         form.ShowDialog()
 
