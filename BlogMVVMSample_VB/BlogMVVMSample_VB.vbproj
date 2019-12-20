@@ -52,6 +52,9 @@
     <StartupObject>
     </StartupObject>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="ClosedXML, Version=0.94.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ClosedXML.0.94.2\lib\net46\ClosedXML.dll</HintPath>
@@ -151,6 +154,7 @@
     <Compile Include="Data\FileInfo.vb" />
     <Compile Include="Data\Gender.vb" />
     <Compile Include="Data\JobStatus.vb" />
+    <Compile Include="Data\Languages.vb" />
     <Compile Include="Data\MessageBoxInfo.vb" />
     <Compile Include="Data\PathInfo.vb" />
     <Compile Include="Data\Student.vb" />
@@ -169,6 +173,7 @@
     <Compile Include="Forms\Model\ListModel.vb" />
     <Compile Include="Forms\Model\MessageBox2Model.vb" />
     <Compile Include="Forms\Model\ProgressBarModel.vb" />
+    <Compile Include="Forms\Model\ResourceModel.vb" />
     <Compile Include="Forms\Model\SqlServerModel.vb" />
     <Compile Include="Forms\Model\TextBox3Model.vb" />
     <Compile Include="Forms\Model\TextBoxModel.vb" />
@@ -187,6 +192,7 @@
     <Compile Include="Forms\ViewModel\ListViewModel.vb" />
     <Compile Include="Forms\ViewModel\MessageBox2ViewModel.vb" />
     <Compile Include="Forms\ViewModel\ProgressBarViewModel.vb" />
+    <Compile Include="Forms\ViewModel\ResourceViewModel.vb" />
     <Compile Include="Forms\ViewModel\SqlServerViewModel.vb" />
     <Compile Include="Forms\ViewModel\TextBox3ViewModel.vb" />
     <Compile Include="Forms\ViewModel\TextBoxViewModel.vb" />
@@ -238,6 +244,9 @@
     <Compile Include="Forms\View\RadioButtonView.xaml.vb">
       <DependentUpon>RadioButtonView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Forms\View\ResourceView.xaml.vb">
+      <DependentUpon>ResourceView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Forms\View\SqlServerView.xaml.vb">
       <DependentUpon>SqlServerView.xaml</DependentUpon>
     </Compile>
@@ -251,6 +260,16 @@
     <Compile Include="MVVM\ViewModelBase.vb" />
     <Compile Include="My Project\AssemblyInfo.vb">
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="My Project\LanguageSample.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LanguageSample.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\LanguageSample.ja-JP.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LanguageSample.ja-JP.resx</DependentUpon>
     </Compile>
     <Compile Include="My Project\MyExtensions\MyWpfExtension.vb">
       <VBMyExtensionTemplateID>Microsoft.VisualBasic.WPF.MyExtension</VBMyExtensionTemplateID>
@@ -266,11 +285,22 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="My Project\LanguageSample.ja-JP.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>LanguageSample.ja-JP.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\LanguageSample.resx">
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>LanguageSample.Designer.vb</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
     </EmbeddedResource>
+    <None Include="My Project\app.manifest" />
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
@@ -342,6 +372,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Forms\View\RadioButtonView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Forms\View\ResourceView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

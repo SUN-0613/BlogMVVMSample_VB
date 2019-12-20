@@ -8,7 +8,7 @@ Class Application
 
         MyBase.OnStartup(e)
 
-        Dim form As New LikeOperatorView()
+        Dim form As New ResourceView()
 
         form.ShowDialog()
 
