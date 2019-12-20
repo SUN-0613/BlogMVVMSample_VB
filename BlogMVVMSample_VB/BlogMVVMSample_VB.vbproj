@@ -136,6 +136,7 @@
   <ItemGroup>
     <Compile Include="Behaviors\BehaviorBase.vb" />
     <Compile Include="Behaviors\CommonDialogBehavior.vb" />
+    <Compile Include="Behaviors\LanguageTriggerAction.vb" />
     <Compile Include="Behaviors\MessageBoxBehavior.vb" />
     <Compile Include="Behaviors\PathsDragAndDropBehavior.vb" />
     <Compile Include="Behaviors\TextBoxIntegerOnly.vb" />
@@ -154,6 +155,7 @@
     <Compile Include="Data\FileInfo.vb" />
     <Compile Include="Data\Gender.vb" />
     <Compile Include="Data\JobStatus.vb" />
+    <Compile Include="Data\LanguageInfo.vb" />
     <Compile Include="Data\Languages.vb" />
     <Compile Include="Data\MessageBoxInfo.vb" />
     <Compile Include="Data\PathInfo.vb" />
@@ -173,6 +175,7 @@
     <Compile Include="Forms\Model\ListModel.vb" />
     <Compile Include="Forms\Model\MessageBox2Model.vb" />
     <Compile Include="Forms\Model\ProgressBarModel.vb" />
+    <Compile Include="Forms\Model\ResourceDictionaryModel.vb" />
     <Compile Include="Forms\Model\ResourceModel.vb" />
     <Compile Include="Forms\Model\SqlServerModel.vb" />
     <Compile Include="Forms\Model\TextBox3Model.vb" />
@@ -192,6 +195,7 @@
     <Compile Include="Forms\ViewModel\ListViewModel.vb" />
     <Compile Include="Forms\ViewModel\MessageBox2ViewModel.vb" />
     <Compile Include="Forms\ViewModel\ProgressBarViewModel.vb" />
+    <Compile Include="Forms\ViewModel\ResourceDictionaryViewModel.vb" />
     <Compile Include="Forms\ViewModel\ResourceViewModel.vb" />
     <Compile Include="Forms\ViewModel\SqlServerViewModel.vb" />
     <Compile Include="Forms\ViewModel\TextBox3ViewModel.vb" />
@@ -243,6 +247,9 @@
     </Compile>
     <Compile Include="Forms\View\RadioButtonView.xaml.vb">
       <DependentUpon>RadioButtonView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\View\ResourceDictionaryView.xaml.vb">
+      <DependentUpon>ResourceDictionaryView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Forms\View\ResourceView.xaml.vb">
       <DependentUpon>ResourceView.xaml</DependentUpon>
@@ -311,6 +318,16 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Forms\Languages\en-US\LanguageDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Forms\Languages\ja-JP\LanguageDictionary.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Page Include="Forms\View\CalendarView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -375,6 +392,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Forms\View\ResourceDictionaryView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Forms\View\ResourceView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -392,9 +413,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Forms\Languages\en-US\" />
-    <Folder Include="Forms\Languages\ja-JP\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

@@ -8,7 +8,7 @@ Class Application
 
         MyBase.OnStartup(e)
 
-        Dim form As New ResourceView()
+        Dim form As New ResourceDictionaryView()
 
         form.ShowDialog()
 
