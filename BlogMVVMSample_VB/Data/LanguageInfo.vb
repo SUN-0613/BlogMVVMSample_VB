@@ -2,6 +2,7 @@
 Imports System.IO
 Imports System.Threading
 Imports System.Windows
+Imports System.Windows.Markup
 
 Namespace Data
 
@@ -89,6 +90,17 @@ Namespace Data
             }
 
         End Function
+
+        ''' <summary>ResourceDictionary更新</summary>
+        Public Sub UpdateResourceDictionary()
+
+            Using writer As New StreamWriter(LanguageDictionary.Source.ToString())
+
+                XamlWriter.Save(LanguageDictionary, writer)
+
+            End Using
+
+        End Sub
 
     End Class
 

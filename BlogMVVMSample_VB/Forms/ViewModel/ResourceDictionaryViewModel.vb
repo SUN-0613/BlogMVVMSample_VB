@@ -31,8 +31,18 @@ Namespace Forms.ViewModel
                 LanguageInfo = New LanguageInfo(_FileName, value)
                 CallPropertyChanged(NameOf(LanguageInfo))
 
+                ' テキスト更新
+                UpdateText = LanguageInfo.LanguageDictionary("Message").ToString()
+                CallPropertyChanged(NameOf(UpdateText))
+
             End Set
         End Property
+
+        ''' <summary>ResourceDictionary更新用テキスト</summary>
+        Public Property UpdateText As String
+
+        ''' <summary>更新コマンド</summary>
+        Public Property UpdateCommand As DelegateCommand
 
 #End Region
 
@@ -40,6 +50,18 @@ Namespace Forms.ViewModel
         Public Sub New()
 
             SelectedLanguage = LanguageInfo.SelectedLanguage
+
+            UpdateCommand = New DelegateCommand(
+                Sub()
+
+                    ' ResourceDictionaryの値を更新してファイルに保存
+                    LanguageInfo.LanguageDictionary("Message") = UpdateText
+                    LanguageInfo.UpdateResourceDictionary()
+
+                End Sub,
+                Function()
+                    Return True
+                End Function)
 
         End Sub
 
