@@ -8,7 +8,7 @@ Class Application
 
         MyBase.OnStartup(e)
 
-        Dim form As New ResourceDictionaryView()
+        Dim form As New TimePickerView()
 
         form.ShowDialog()
 
